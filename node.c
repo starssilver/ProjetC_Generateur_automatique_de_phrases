@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 
-p_node createNode(int val)
+p_node createNode(char val)
 {
     p_node nouv;
 

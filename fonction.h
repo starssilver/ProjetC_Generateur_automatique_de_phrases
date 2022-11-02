@@ -7,6 +7,10 @@
 
 t_tree createEmptyTree();
 
+void trieur_Nom(t_tree var);
+
+
+
 #ifndef PROJETC_GENERATEUR_AUTOMATIQUE_DE_PHRASES_FONCTION_H
 #define PROJETC_GENERATEUR_AUTOMATIQUE_DE_PHRASES_FONCTION_H
 

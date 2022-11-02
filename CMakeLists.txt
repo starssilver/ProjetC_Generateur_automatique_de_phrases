@@ -3,4 +3,4 @@ project(ProjetC_Generateur_automatique_de_phrases C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(ProjetC_Generateur_automatique_de_phrases main.c)
+add_executable(ProjetC_Generateur_automatique_de_phrases main.c fonction.c fonction.h node.c node.h)

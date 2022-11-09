@@ -19,7 +19,9 @@ void trieur_Nom(t_tree var)
 {
     FILE* fichier = NULL;
     int caractereActuel = 0;
-
+    char ligne[120];
+    node_alpha *p = NULL, new;
+    //si tree est vide
     fichier = fopen("dicotest.txt", "r");
 
     if (fichier != NULL)
@@ -27,9 +29,19 @@ void trieur_Nom(t_tree var)
         // Boucle de lecture des caractères un à un
         do
         {
-
+            while(fgets(ligne, 80, fichier) != NULL)
+            {
+                fgets(ligne, 80, fichier); // On lit la ligne
+                printf("%s", ligne);
+            }
             caractereActuel = fgetc(fichier); // On lit le caractère
-            printf("%c", caractereActuel); // On l'affiche
+            new = nodecreate(caractereActuel);
+            //p->a->car = new.car;
+            //p = p->a;
+
+            //printf("%c", new.car);
+
+
 
         } while (caractereActuel != EOF); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
 
@@ -37,8 +49,15 @@ void trieur_Nom(t_tree var)
     }
 }
 
+int lireligneNom(char ligne[])
+{
+    //print
+    //return 1;
+}
 
 void parcourir(t_tree var)
 {
 
 }
+
+//printf("%c", caractereActuel); // On l'affiche

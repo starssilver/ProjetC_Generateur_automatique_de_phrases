@@ -4,15 +4,11 @@
 
 #include "node.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-
-p_node createNode(char val)
+node_alpha nodecreate(int val)
 {
-    p_node nouv;
-
-    nouv = (p_node)malloc(sizeof(t_node));
-    nouv->value = val;
-    nouv->left = nouv->right = NULL;
-
-    return nouv;
+    node_alpha new;
+    new.car = val;
+    return new;
 }

@@ -6,6 +6,7 @@
 #include <stdio.h>
 
 
+typedef struct File File;
 
 t_tree createEmptyTree()
 {
@@ -14,12 +15,28 @@ t_tree createEmptyTree()
     return var;
 }
 
+void Nomtree(char Tab[],t_tree var)
+{
+    int i = 0,Lettre = 0;
+    do
+    {
+        Lettre = Tab[i]; // On lit le caractère
+        if (Lettre != 9)
+        {
+
+        }
+        i++;
+    } while (Lettre != EOF); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
+
+}
+
+
 
 void trieur_Nom(t_tree var)
 {
     FILE* fichier = NULL;
     int caractereActuel = 0;
-    char ligne[120];
+    char ligneActuel[120];
     node_alpha *p = NULL, new;
     //si tree est vide
     fichier = fopen("dicotest.txt", "r");
@@ -29,17 +46,13 @@ void trieur_Nom(t_tree var)
         // Boucle de lecture des caractères un à un
         do
         {
-            while(fgets(ligne, 80, fichier) != NULL)
-            {
-                fgets(ligne, 80, fichier); // On lit la ligne
-                printf("%s", ligne);
-            }
+            fgets(ligneActuel, 80, fichier);
             caractereActuel = fgetc(fichier); // On lit le caractère
-            new = nodecreate(caractereActuel);
-            //p->a->car = new.car;
-            //p = p->a;
-
-            //printf("%c", new.car);
+            if (caractereActuel != 78)      // ' ' = 9, 'N' = 78
+            {
+                printf("%c", caractereActuel);
+                Nomtree(ligneActuel, var);
+            }
 
 
 
@@ -49,11 +62,6 @@ void trieur_Nom(t_tree var)
     }
 }
 
-int lireligneNom(char ligne[])
-{
-    //print
-    //return 1;
-}
 
 void parcourir(t_tree var)
 {

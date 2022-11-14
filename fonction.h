@@ -10,7 +10,11 @@
 
 
 
-t_tree createEmptyTree();
+
+
+
+
+void Nomtree(p_node_alpha p, char *base, int index);
 
 void trieur_Nom(t_tree var);
 

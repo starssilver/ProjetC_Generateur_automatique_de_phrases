@@ -6,9 +6,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-node_alpha nodecreate(int val)
+
+t_tree createEmptyTree()
 {
-    node_alpha new;
-    new.car = val;
-    return new;
+    t_tree var;
+    var.root->child[26];
+    return var;
+}
+
+
+node_alpha createnode(char val)
+{
+    node_alpha n;
+    n.car = val;
+    n.child[26];
+    return n;
 }

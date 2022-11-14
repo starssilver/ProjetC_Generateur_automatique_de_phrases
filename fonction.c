@@ -4,30 +4,31 @@
 #include "fonction.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+#include <string.h>
 
 typedef struct File File;
 
-t_tree createEmptyTree()
-{
-    t_tree var;
-    var.root = NULL;
-    return var;
-}
 
-void Nomtree(char Tab[],t_tree var)
+
+
+void Nomtree(p_node_alpha p, char *base, int index)
 {
-    int i = 0,Lettre = 0;
-    do
+    p_node_alpha temp;
+    if(base[index+1] != '\0')
     {
-        Lettre = Tab[i]; // On lit le caractère
-        if (Lettre != 9)
+        for(int i = 0; i<26;i++)
         {
-
+            if(p->child[i].car == base[index])
+            {
+                Nomtree(p->child, base, index+1);
+            }
+            else
+            {
+                p->child[i] = createnode(base[index]);
+                Nomtree(p->child, base,index+1);
+            }
         }
-        i++;
-    } while (Lettre != EOF); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
-
+    }
 }
 
 
@@ -35,9 +36,10 @@ void Nomtree(char Tab[],t_tree var)
 void trieur_Nom(t_tree var)
 {
     FILE* fichier = NULL;
-    int caractereActuel = 0;
+    int ligne;
     char ligneActuel[120];
     node_alpha *p = NULL, new;
+    char *base = NULL, *forme_flechie = NULL,*type = NULL;
     //si tree est vide
     fichier = fopen("dicotest.txt", "r");
 
@@ -47,25 +49,15 @@ void trieur_Nom(t_tree var)
         do
         {
             fgets(ligneActuel, 80, fichier);
-            caractereActuel = fgetc(fichier); // On lit le caractère
-            if (caractereActuel != 78)      // ' ' = 9, 'N' = 78
-            {
-                printf("%c", caractereActuel);
-                Nomtree(ligneActuel, var);
-            }
+            forme_flechie = strtok(ligneActuel,"\t");
+            base = strtok(NULL,"\t");
+            type = strtok(NULL,"\n");
+            //sscanf(fgets(ligneActuel, 80, fichier),"%s\t%s\t%s\n", forme_flechie, base, type);
+            Nomtree(var.root, base, 0);
 
 
-
-        } while (caractereActuel != EOF); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
+        } while (fgets(ligneActuel, 80, fichier) != NULL); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
 
         fclose(fichier);
     }
 }
-
-
-void parcourir(t_tree var)
-{
-
-}
-
-//printf("%c", caractereActuel); // On l'affiche

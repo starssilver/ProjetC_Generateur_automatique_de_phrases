@@ -14,12 +14,12 @@
 
 
 
-void Nomtree(p_node_alpha p, char *base, int index);
+//void Nomtree(p_node_alpha p, char *base, int index);
 
-void trieur_Nom(t_tree var);
+void trieur_Nom();
 
+void trieur(p_node_alpha p, char *base, int index, char *forme_flechie, char *type_suite , char *type);
 
-
-
+void tab_tree(p_node p, char *base, int index);
 
 #endif //PROJETC_GENERATEUR_AUTOMATIQUE_DE_PHRASES_FONCTION_H

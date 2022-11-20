@@ -10,15 +10,32 @@
 t_tree createEmptyTree()
 {
     t_tree var;
-    var.root->child[26];
+    var.root = createnode(0);
     return var;
 }
 
 
-node_alpha createnode(char val)
+p_node_alpha createnode(char val)
 {
-    node_alpha n;
-    n.car = val;
-    n.child[26];
+    p_node_alpha n;
+    n = (p_node_alpha)malloc(sizeof(node_alpha));
+    n->car = val;
+    n->a = n->b = n->c = n->d = n->e = n->f = n->g = n->h = n->i = n->j = n->k = n->l = n->m = n->n = n->o = n->p = n->q = n->r = n->s = n->t = n->u = n->v = n->w = n->x = n->y = n->z =NULL;
+    return n;
+}
+
+t_tree createEmptyTreeV2()
+{
+    t_tree var;
+    var.root = malloc(40*sizeof(t_node));
+    return var;
+}
+
+p_node createnodeV2(char val)
+{
+    p_node n;
+    n = malloc(sizeof(node_alpha));
+    n->car = val;
+    n->child = malloc(40*sizeof(t_node));
     return n;
 }

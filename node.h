@@ -9,22 +9,31 @@
 struct s_node_alpha
 {
     char car;
-    struct s_node_alpha *child;
+    struct s_node_alpha *a, *b, *c, *d, *e, *f, *g, *h, *i, *j, *k, *l, *m, *n, *o, *p, *q, *r, *s, *t, *u, *v, *w, *x, *y, *z;
 };
 typedef struct s_node_alpha node_alpha, *p_node_alpha;
+
+struct s_node
+{
+    char car;
+    struct s_node *child;
+};
+typedef struct s_node t_node, *p_node;
 
 
 typedef struct s_tree
 {
-    node_alpha *root;
+    p_node_alpha root;
 } t_tree, *p_tree;
 
 
 
 t_tree createEmptyTree();
 
-node_alpha createnode(char val);
+p_node_alpha createnode(char val);
 
+t_tree createEmptyTreeV2();
 
+p_node createnodeV2(char val);
 
 #endif //PROJETC_GENERATEUR_AUTOMATIQUE_DE_PHRASES_NODE_H

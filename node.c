@@ -24,18 +24,4 @@ p_node_alpha createnode(char val)
     return n;
 }
 
-t_tree createEmptyTreeV2()
-{
-    t_tree var;
-    var.root = malloc(40*sizeof(t_node));
-    return var;
-}
 
-p_node createnodeV2(char val)
-{
-    p_node n;
-    n = malloc(sizeof(node_alpha));
-    n->car = val;
-    n->child = malloc(40*sizeof(t_node));
-    return n;
-}

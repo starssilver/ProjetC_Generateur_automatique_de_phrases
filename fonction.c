@@ -10,64 +10,6 @@ typedef struct File File;
 
 
 
-
-/*void trieur_Nom()
-{
-
-    FILE* fichier = NULL;
-    int ligne = 0;
-    char ligneActuel[120];
-    node_alpha *p = NULL, new;
-    char *base = NULL, *forme_flechie = NULL,*type = NULL, *type_suite = NULL;
-
-    fichier = fopen("dicotest.txt", "r");
-
-    if (fichier != NULL)
-    {
-        // Boucle de lecture des caractères un à un
-        do
-        {
-            fgets(ligneActuel, 80, fichier);
-            forme_flechie = strtok(ligneActuel,"\t");
-            base = strtok(NULL,"\t");
-            type = strtok(NULL,":");
-            type_suite = strtok(NULL,":");
-
-        } while (fgets(ligneActuel, 80, fichier) != NULL); // On continue tant que fgetc n'a pas retourné EOF (fin de fichier)
-
-        fclose(fichier);
-    }
-}*/
-
-
-void tab_tree(p_node p, char *base, int index)
-{
-
-    if(base[index+1] != '\0')
-    {
-        for(int i = 0; i<40;i++)
-        {
-            if(p->child[i].car == base[index])
-            {
-                tab_tree(&p->child[i], base, index+1);
-            }
-
-        }
-        for(int i = 0; i<40;i++)
-        {
-            if(p->child[i].car == 0)
-            {
-                p->child[i].car = base[index];
-                tab_tree(&p->child[i], base, index+1);
-            }
-
-        }
-         
-    }
-
-}
-
-
 void trieur(p_node_alpha p, char *base, int index, char *forme_flechie, char *type_suite , char *type){
 
     if (base[index] == 'a') {

@@ -89,16 +89,6 @@ int main(int argc, char *argv[])
             printf("Votre choix n'existe pas !\n");
             goto menu;
     }
-
-
-
-
-
-
-
-
-
-
     return 0;
 }
 
